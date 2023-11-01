@@ -7,19 +7,19 @@ const ProductForm = ({ product, setProduct, handleSubmit, update, params }) => {
     }
 
     // ----------For uploading Image Start----------
-    const [file, setFile] = useState('')
-    const handleImage = async (e) => {
-        e.preventDefault()
-        const data = new FormData()
-        data.set('file', file)
-        // console.log(process.env.HOST);
-        const res = await fetch(`/routes/upload/`, {
-            method: 'POST',
-            body: data
-        })
-        const json = await res.json()
-        alert(json.message)
-    }
+    // const [file, setFile] = useState('')
+    // const handleImage = async (e) => {
+    //     e.preventDefault()
+    //     const data = new FormData()
+    //     data.set('file', file)
+    //     // console.log(process.env.HOST);
+    //     const res = await fetch(`/routes/upload/`, {
+    //         method: 'POST',
+    //         body: data
+    //     })
+    //     const json = await res.json()
+    //     alert(json.message)
+    // }
     // ----------For uploading Image End----------
 
     const handleClick = () => {
@@ -37,7 +37,8 @@ const ProductForm = ({ product, setProduct, handleSubmit, update, params }) => {
                 </div>
 
                 {/* ----------For uploading Image Start---------- */}
-                <div>
+                {/* ----------commented because doesn't work on vercel---------- */}
+                {/* <div>
                     <label htmlFor="file" className="block text-sm font-medium leading-6 text-gray-900">Image</label>
                     <div className="mt-2">
                         <input name="file" id="file" type="file" onChange={(e) => setFile(e.target.files?.[0])} required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
@@ -45,7 +46,7 @@ const ProductForm = ({ product, setProduct, handleSubmit, update, params }) => {
                     <button type="submit" onClick={handleImage} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                         Upload
                     </button>
-                </div>
+                </div> */}
                 {/* ----------For uploading Image End---------- */}
 
                 <div>
