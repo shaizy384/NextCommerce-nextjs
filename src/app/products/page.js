@@ -12,7 +12,7 @@ export default async function Products() {
         <main className="flex min-h-screen flex-col items-center justify-evenly p-24">
             <div className="mx-">
                 <h1 className="text-3xl my-3">Products list</h1>
-                {products?.products?.map(product => {
+                {products && products.products.map(product => {
                     return <ProductList key={product._id} {...product} />
                 })}
                 <div className="mt-10">
