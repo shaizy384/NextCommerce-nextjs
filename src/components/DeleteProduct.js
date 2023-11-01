@@ -5,7 +5,8 @@ const DeleteProduct = ({ id }) => {
     const router = useRouter()
 
     const handleDelete = async () => {
-        let response = await fetch(`${process.env.HOST}/routes/products/${id}`, {
+        // console.log(process.env.HOST);
+        let response = await fetch(`/routes/products/${id}`, {
             method: 'DELETE'
         })
         response = await response.json()

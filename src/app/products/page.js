@@ -1,13 +1,21 @@
+"use client"
 import ProductList from "@/components/ProductList";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-async function getProducts() {
-    const data = await fetch(`${process.env.HOST}/routes/products`, { cache: "no-store" })
-    return await data.json()
-}
-
-export default async function Products({ products }) {
-    // const products = await getProducts()
+export default function Products() {
+    const [products, setProducts] = useState('')
+    const getProducts = async () => {
+        const data = await fetch(`/routes/products`, { cache: "no-store" })
+        const json = await data.json()
+        setProducts(json)
+        // console.log(process.env.HOST);
+    }
+    // console.log(process.env.HOST);
+    useEffect(() => {
+        getProducts()
+        // eslint-disable-next-line
+    }, [])
     return (
         <main className="flex min-h-screen flex-col items-center justify-evenly p-24">
             <div className="mx-">
@@ -21,14 +29,4 @@ export default async function Products({ products }) {
             </div>
         </main>
     )
-}
-
-export async function getServerSideProps() {
-    // Fetch data from external API
-    // const res = await fetch(`https://.../data`)
-    // const data = await res.json()
-    const products = await getProducts()
-
-    // Pass data to the page via props
-    return { props: { products } }
 }

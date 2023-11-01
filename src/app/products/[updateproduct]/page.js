@@ -9,7 +9,7 @@ export default function Addproduct({ params }) {
     const [product, setProduct] = useState({ name: '', price: '', company: '', category: '', color: '' })
 
     const getProduct = async () => {
-        let response = await fetch(`${process.env.HOST}/routes/products/${params.updateproduct}`, {
+        let response = await fetch(`/routes/products/${params.updateproduct}`, {
             method: 'GET',
         })
         response = await response.json()
@@ -24,7 +24,8 @@ export default function Addproduct({ params }) {
 
     const handleSubmit = async (setLoading) => {
         setLoading(true)
-        let response = await fetch(`${process.env.HOST}/routes/products/${params.updateproduct}`, {
+        // console.log(process.env.HOST);
+        let response = await fetch(`/routes/products/${params.updateproduct}`, {
             method: 'PUT',
             body: JSON.stringify({ name: product.name, price: product.price, company: product.company, category: product.category, color: product.color })
         })

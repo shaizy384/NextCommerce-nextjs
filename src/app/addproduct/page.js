@@ -10,7 +10,8 @@ export default function Addproduct() {
 
     const handleSubmit = async (setLoading) => {
         setLoading(true)
-        let response = await fetch(`${process.env.HOST}/routes/products`, {
+        // console.log(process.env.HOST);
+        let response = await fetch(`/routes/products`, {
             method: 'POST',
             body: JSON.stringify({ name: product.name, price: product.price, company: product.company, category: product.category, color: product.color })
         })
