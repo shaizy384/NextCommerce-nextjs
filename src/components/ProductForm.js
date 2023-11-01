@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const ProductForm = ({ product, setProduct, handleSubmit, update, params }) => {
+const ProductForm = ({ product, setProduct, handleSubmit, update }) => {
     const [loading, setLoading] = useState(false)
     const handleChange = (e) => {
         setProduct({ ...product, [e.target.name]: e.target.value })
@@ -12,7 +12,6 @@ const ProductForm = ({ product, setProduct, handleSubmit, update, params }) => {
     //     e.preventDefault()
     //     const data = new FormData()
     //     data.set('file', file)
-    //     // console.log(process.env.HOST);
     //     const res = await fetch(`/routes/upload/`, {
     //         method: 'POST',
     //         body: data

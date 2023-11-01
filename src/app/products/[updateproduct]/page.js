@@ -24,7 +24,6 @@ export default function Addproduct({ params }) {
 
     const handleSubmit = async (setLoading) => {
         setLoading(true)
-        // console.log(process.env.HOST);
         let response = await fetch(`/routes/products/${params.updateproduct}`, {
             method: 'PUT',
             body: JSON.stringify({ name: product.name, price: product.price, company: product.company, category: product.category, color: product.color })
