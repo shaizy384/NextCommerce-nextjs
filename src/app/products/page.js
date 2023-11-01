@@ -1,18 +1,19 @@
 import ProductList from "@/components/ProductList";
 import Link from "next/link";
 
-async function getProducts() {
-    const data = await fetch(`${process.env.HOST}/routes/products`, { cache: "no-store" })
-    return await data.json()
-}
+// async function getProducts() {
+//     const data = await fetch(`${process.env.HOST}/routes/products`, { cache: "no-store" })
+//     return await data.json()
+// }
 
 export default async function Products() {
-    const products = await getProducts()
+    // const products = await getProducts()
+    const products = ''
     return (
         <main className="flex min-h-screen flex-col items-center justify-evenly p-24">
             <div className="mx-">
                 <h1 className="text-3xl my-3">Products list</h1>
-                {products && products.products.map(product => {
+                {products !== '' && products.products.map(product => {
                     return <ProductList key={product._id} {...product} />
                 })}
                 <div className="mt-10">
