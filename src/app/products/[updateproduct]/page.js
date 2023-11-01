@@ -19,7 +19,8 @@ export default function Addproduct({ params }) {
 
     useEffect(() => {
         getProduct()
-    }, [getProduct])
+        // eslint-disable-next-line
+    }, [])
 
     const handleSubmit = async (setLoading) => {
         setLoading(true)
