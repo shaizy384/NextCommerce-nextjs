@@ -4,7 +4,7 @@ import Link from "next/link";
 // import { useEffect, useState } from "react";
 
     const getProducts = async () => {
-        console.log(process.env.HOST);
+        console.log('env',process.env.HOST);
         const data = await fetch(`${process.env.HOST}/routes/products`, { cache: "no-store" })
         return await data.json()
         // console.log(process.env.HOST);
