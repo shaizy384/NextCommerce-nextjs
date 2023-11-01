@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-evenly p-24">
+    <main className="flex min-h-screen flex-col items-center justify-evenly py-24 md:px-24 px-12">
       <h1 className="text-center text-4xl">NextCommerce</h1>
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 lg:text-left">
         <Link
