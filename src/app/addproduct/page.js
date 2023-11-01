@@ -10,7 +10,7 @@ export default function Addproduct() {
 
     const handleSubmit = async (setLoading) => {
         setLoading(true)
-        let response = await fetch('http://localhost:3000/routes/products', {
+        let response = await fetch(`${process.env.HOST}/routes/products`, {
             method: 'POST',
             body: JSON.stringify({ name: product.name, price: product.price, company: product.company, category: product.category, color: product.color })
         })
@@ -19,6 +19,7 @@ export default function Addproduct() {
         if (response.success) {
             setProduct({ name: '', price: '', company: '', category: '', color: '' })
             router.push('/products')
+            router.refresh()
         }
         setLoading(false)
     }

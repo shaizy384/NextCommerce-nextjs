@@ -23,5 +23,5 @@ export async function POST(req, res) {
     const product = new Product(payload)
     const data = await product.save()
 
-    return NextResponse.json({ message: "Added", success: true, data }, { status: 200 })
+    return NextResponse.json({ message: "Success! Product Added", success: true, data }, { status: 200 })
 }

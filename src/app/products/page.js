@@ -2,7 +2,7 @@ import ProductList from "@/components/ProductList";
 import Link from "next/link";
 
 async function getProducts() {
-    const data = await fetch('http://localhost:3000/routes/products', { cache: "no-store" })
+    const data = await fetch(`${process.env.HOST}/routes/products`, { cache: "no-store" })
     return await data.json()
 }
 

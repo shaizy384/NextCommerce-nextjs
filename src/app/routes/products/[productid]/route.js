@@ -13,7 +13,7 @@ export async function PUT(req, res) {
 
     product = await Product.findOneAndUpdate({_id}, payload)
 
-    return NextResponse.json({ message: "Product Updated", success: true, product })
+    return NextResponse.json({ message: "Product updated successfuly", success: true, product })
 }
 
 export async function DELETE(req, res) {
@@ -26,7 +26,7 @@ export async function DELETE(req, res) {
 
     product = await Product.findByIdAndDelete(id)
 
-    return NextResponse.json({ message: "Product Deleted", success: true, product })
+    return NextResponse.json({ message: "Product deleted successfuly", success: true, product })
 }
 
 export async function GET(req, res) {

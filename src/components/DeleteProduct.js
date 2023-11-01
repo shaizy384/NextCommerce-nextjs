@@ -5,13 +5,14 @@ const DeleteProduct = ({ id }) => {
     const router = useRouter()
 
     const handleDelete = async () => {
-        let response = await fetch(`http://localhost:3000/routes/products/${id}`, {
+        let response = await fetch(`${process.env.HOST}/routes/products/${id}`, {
             method: 'DELETE'
         })
         response = await response.json()
         alert(response.message)
         if (response.success) {
             router.push('/products')
+            router.refresh()
         }
     }
 

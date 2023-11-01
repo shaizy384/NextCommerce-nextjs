@@ -12,7 +12,7 @@ const ProductForm = ({ product, setProduct, handleSubmit, update, params }) => {
         e.preventDefault()
         const data = new FormData()
         data.set('file', file)
-        const res = await fetch("http://localhost:3000/routes/upload/", {
+        const res = await fetch(`${process.env.HOST}/routes/upload/`, {
             method: 'POST',
             body: data
         })
