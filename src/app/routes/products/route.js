@@ -3,10 +3,14 @@ import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
-    await mongoose.connect(process.env.CONNECTION_STRING)
+    try {
+        await mongoose.connect(process.env.CONNECTION_STRING)
 
-    const products = await Product.find()
-    return NextResponse.json({ message: "connected", success: true, products })
+        const products = await Product.find()
+        return NextResponse.json({ message: "connected", success: true, products })
+    } catch (error) {
+        return NextResponse.json({ message: "Server error", error }, { status: 500 })
+    }
 }
 
 export async function POST(req, res) {

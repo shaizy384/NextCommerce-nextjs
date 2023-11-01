@@ -21,7 +21,8 @@ export default function Addproduct({ params }) {
         getProduct()
     }, [])
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (setLoading) => {
+        setLoading(true)
         let response = await fetch(`http://localhost:3000/routes/products/${params.updateproduct}`, {
             method: 'PUT',
             body: JSON.stringify({ name: product.name, price: product.price, company: product.company, category: product.category, color: product.color })
@@ -32,6 +33,7 @@ export default function Addproduct({ params }) {
             setProduct({ name: '', price: '', company: '', category: '', color: '' })
             router.push('/products')
         }
+        setLoading(true)
     }
 
     return (

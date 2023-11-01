@@ -6,9 +6,10 @@ import { useState } from "react";
 
 export default function Addproduct() {
     const router = useRouter()
-    const [product, setProduct] = useState({ name: '', price: '', company: '', category: '', color: '' })
+    const [product, setProduct] = useState({ name: '', price: '', company: '', category: '', color: 'rgb(0, 0, 0)' })
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (setLoading) => {
+        setLoading(true)
         let response = await fetch('http://localhost:3000/routes/products', {
             method: 'POST',
             body: JSON.stringify({ name: product.name, price: product.price, company: product.company, category: product.category, color: product.color })
@@ -19,6 +20,7 @@ export default function Addproduct() {
             setProduct({ name: '', price: '', company: '', category: '', color: '' })
             router.push('/products')
         }
+        setLoading(false)
     }
 
     return (
